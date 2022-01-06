@@ -1,0 +1,571 @@
+Machine learning -> figures out the rules for us
+Give input and we give the expected output
+
+Machine learning = 2 layers
+
+
+Neural Network = uses layered 
+Multilayered - 
+Layer 1 = input
+Layer 2 = something
+Layer 3 = output
+
+Features = input data
+Label = output
+Data 
+
+
+Types of machine learning:
+
+Supervised learning: 
+Has features and label
+
+We put in the feature then expect predictions -> we then compare the predictions with the actual label/output
+
+Unsupervised learning: 
+Has features but not label
+
+reinforcement learning:
+
+No features, no label
+
+Just the agent or bot learning by itself
+
+Has an environment, agent, and reward
+
+
+
+TENSORFLOW:
+
+It has graph and sessions
+
+Graphs -> everything is connected together, that is why it is a graph
+
+
+GOOGLE COLAB:
+
+To reset your workspace for google colab -> restart runtime
+
+
+%tensorflow_version 2.x ->for declaring what version will be used for our google colab
+
+Import tensorflow as tf
+
+What is a tensor?
+
+Basically vectors…
+
+Tensors has -> data type(int, float, string) and shape(scalar) 
+
+For creating a string, int or a float -> they will be rank 0 or scalar
+
+Rank is AKA degree
+
+Ranks for variables:
+
+rank/degree 0:
+strings 
+float 
+int 
+rank/degree 1
+A list or an array
+rank/dgree 2
+2d array or a matrix
+
+Syntax for looking at ranking:
+
+varName = tf.Variable(int, tf.string)
+
+tf.rank(varName) -> returns numpy=yourRank
+
+Shape of tensors:
+
+tf.rank(yourVar) -> returns an array of the shape a 2d or a 1d
+
+Reshaping your tensors:
+
+yourTensor = tf.reshape(originalTensor, [neTensorArray])
+
+
+Project2: LINEAR REGRESSION ALGORITHM.
+
+df.head() = gives you the first five data
+
+#uses the tf.evaluator.LinearClassifier() -> to build the model
+
+import 
+Prepping if the data for modeling(categorical, numerical)
+Creating the model
+Evaluating the model or seeing the predictions of the model by model.predict()
+
+
+
+#we can also use the sklearn 
+from  sklearn.linear_model import LinearRegression
+
+Model = linearRegression()
+
+model.fit(X_train, Y_train)
+
+
+predictions  = model.predict(xTest)
+Returns an array
+
+
+from sklearn.linear_model import LinearRegression->importing the linear regression algo
+
+
+X = myDf[[‘cat1’, ‘cat2’, ‘cat3’ ]]  -> Filling the categorical values with numbers 
+ 
+myDf = myDf.get_dummies(data=X, drop_first = True) -> normal
+myDf = myDf.reindex(labels=myCopyDf, fill_value = 0, axis = 1) -> copying the columns of another data and filling it out with 0’s 
+
+
+
+
+
+
+
+
+o
+
+DEEP LEARNING: Danel:
+
+
+You cant explain the reason why the model chose that pattern
+Machine learning is best for structured data aka as CSV or Excel
+Deep learning is best for unstructured data
+
+
+
+Machine Learning:
+
+Random forest
+Naive bayes
+Nearest neighbour
+Support vector machine
+
+
+Deep Learning:
+Neural Networks
+Fully connected neural networks
+Convolutional neural networks
+
+
+What is neural networks?
+
+Neural networks are basically layers, layers that filters out to get the label
+
+
+We turn unstructured data to numbers and find the patterns. We convert it into a tensor a 2d lists.
+
+Tensor = patterns, features, weights
+
+Once it turns it to a tensor then represents an output which is also numbers
+
+
+
+
+
+
+Neural networks anatomy:
+
+1-input layer
+1-infinity hiddel layers
+1 output layer
+
+
+Patterns = embedding, weights, feature representation, feature vectors
+
+Types of learning:
+
+Supervised learning
+Semi-supervised learning
+Unsupervised learning
+Transfer learning
+
+
+Reasons for Deep Learning:
+
+Recommendations - youtube recommendations
+Translation - google translate
+Speech recognition - Siri
+Spam detection - outlook mail filter (NLP) natural language processing
+Computer vision
+Sequence to sequence = voice recognition
+classification /regression = NLP
+
+
+
+TENSORFLOW:
+
+Easy model building -> build and train ml models easily. 
+Keras = an API
+Robust ML production -> deploy models through cloud, on your browser, or in the browser
+
+
+GPUs and TPUs:
+
+They are fast at computing numbers.
+
+
+feature  -> tensor -> model -> tensorOutput -> label
+
+
+
+
+TOPICS TO COVER:
+
+TensorFlow basics & Fundamentals
+Preprocessing data
+Building and using pretrained deep learning models
+Fitting the model to the data
+Making predictions
+Evaluating the model predictions(accuracy)
+Saving and loading models
+Using the trained model to make predictions on another data set(custom) 
+
+
+Google COLAB:
+
+Shortcuts:
+cmd + mm = turn comments into markups
+shift + enter = new cell after a creating a markup
+
+esc + b = add cell below
+Esc + a = add cell above
+cmd  + m + d = delete cell
+
+
+TensorFlow Fundamentals:
+
+
+Import tensorflow as tf
+
+scalar  = tf.constant(7) -> no shape, no dimension
+
+vector  = tf.constant([10,10]) -> has a shape of 2, and dimension of 1
+
+Matrix = tf.constant([ [10,10] 
+		          [11, 11] ]) -> has a shape of 2, 2 and dimension of 2
+
+Matrix2 = tf.constant([ [10, 10],
+		           [11, 11],
+		           [12, 12] ] -> has a shape of 2, 3 and dimension of 2
+
+
+#specifying the data type
+
+Matrix3 = tf.constant([10., 11.], dtype=tf.float16 ) ->specified the dtype of a float
+
+Matrix3 = tf.Variable([10, 11] ) -> changeable variable
+
+
+#To change the changeable variable
+
+myTensor.assign(newInputHere)
+
+#Getting a random tensor:
+
+myGenerator = tf.random.Generator.from_seed(123)
+
+random1 = myGenerator.uniform(shape=(2,2))
+random2 = myGenerator.normal(shape=(2,2))
+
+NOTE: 
+If the shape is only one dimensional, you would need to change the parentheses in the shape to a square brackets
+
+
+SHUFFLING:
+
+not_shuffled  = tf.constant([10,10,10])
+
+tf.random.shuffle(not_shuffled, seed=None)
+
+
+CREATING A TENSOR WITH NUMPY:
+#array of 1-24 with dtype=int32
+#creating a numpy array
+ourArray = np.arange(1, 25, dtype=np.int32 )
+
+
+newTensor = tf.constant(ourArray) -> makes a new tensor
+newTensor = tf.constant(ourtArray, shape=(3,3)) -> declaring the shape of the tensor
+tf.reshape(yourTensor, [3,3]) -> Reshaping a tensor
+
+
+
+Tensor information:
+
+Shape
+Rank or dimension
+Axis 
+Size 
+
+
+
+#accessing each axis
+
+myTensor[1, :1, :2, :4]
+
+#adding in new axis or dimension
+
+
+newTensor = oldTensor(..., tf.newaxis)
+
+tf.expand(oldTensor, axis = 1) 
+1 = middle of the tensor
+-1 = last of the tensor
+0 = front of the tensor
+
+
+Tensor operations:
+
+tf.add(myTensor, 10) = adds 10 on all the elements in the tensor
+tf .multipy(myTensor, 10) = multiples 10 on all the elements in the tensor
+tf.subtract (myTensor, 10) = subtracts 10 on all the elements in the tensor
+tf.divide(myTensor, 10) = divides 10 on all the elements in the tensor
+
+
+
+
+
+
+Matrix multiplication:
+
+
+
+tf.matmul(tensor1, tensor2) -> multiplies two tensors together
+
+result  -> the height of it is going to be the first tensor then the width is going to be the second tensor.
+
+
+
+HxW = H=W -> the first W and the second H suppose to match for you to matrix multiply
+
+You can also multiply then with “tf.tensordot(tensor1, tensor2, axes=1)”
+
+#TRANSPOSE
+
+myTensor = tf.constant([[1,2,3],
+    [4,5,6],
+    [7,8,9]])
+
+tf.transpose(myTensor) -> 1,4,7
+     			       2,5,8
+			       3,6,9
+
+
+CHANGING THE DATA TYPE OF A TENSOR:
+
+To check the data type = yourTensor.dtype
+
+yourTensor = tf.cast(yourTensor, dtype=tf.float16)  ->To change the dtype of your tensor 
+
+
+
+AGGREGATION:
+
+tf.abs(yourTensor) -> this will return the absolute values of all elements in your tensor
+
+GET THE MEAN, MIN, MAX, SUM OF THE TENSOR
+
+Tf.reduce_min(myTensor), tf.reduce_max(myTensor), tf.reduce_mean(myTensor), 
+tf.reduce_sum(myTensor)
+
+IMPORTING tensorflow_probability as tfp
+
+tfp.stats.variance(yourTensor) -> getting the variance of your tensor
+tfp.stats.stddev(yourTensor) -> getting the standard deviation of your tensor
+
+
+
+tf.argmax(yourTensor) ->gets the idx of the maximum value in the tensor
+
+yourTensor[tf.argmax(yourTensor)] -> getting the max value in the tensor using argmax
+
+tf.argmin(yourTensor) -> getting idx of the minimum value in the tensor
+
+yourTensor[tf.argmin(yourTensor)] -> getting the min value in the tensor using argmin 
+
+
+
+
+#SQUEEZING:
+
+Squeezing will basically remove all the 1’s on your dimensions or your shape
+
+For ex:
+
+shape  =(1,1,1,5-) > shape = (100)
+
+tf .squeeze(myTensor)
+
+
+ONE HOT ENCODING:
+
+One hot encoding basically translates input to a string of numbers
+
+syntax: 
+
+tf.one_ hot(myArray, depth=len(myArray)
+
+
+
+
+#Squaring a tensor
+
+tf.square(myTensor)
+
+tf.sqrt(myTensor) #must be a float 
+
+tf.log(myTensor) #must be a float and requires the math function
+
+
+
+NUMPY:
+
+
+Creating a numpy array:
+
+myNumpyArr = np.array([1,2,3,4,5])
+
+myTensor = tf.constant(myNumpyArr) -> converting a numpy array into a tensor
+
+
+myNumpyArr = np.array(myTensor) - > converting a tensor into a numpy array
+
+
+myNumpyArr = myTensor.numpy() -> another method of converting tensor into an array
+
+
+Accessing the element inside our numpy array
+
+#numpy data types have 64 bit. Meaning they store int64 and float64 data types
+#while tensors have only 32 bit. 
+
+
+myTensor.numpy()[myIdx]
+myNumpy[myIdx] 
+
+
+#Intermission
+
+
+
+
+
+NEURAL NETWORKS REGRESSION
+
+What is a regression?
+This will predict a number.
+How much will this house sell for?
+How many people will buy this app?
+How much will my health insurance be?
+How much should I save each week for fuel? 
+Getting the coordinates of the image to detect an object.
+
+
+WHAT TO COVER:
+
+
+
+
+Building a model:
+
+
+model  = tf.keras.Sequential([
+	tf.keras.layers.Dense(1)
+])
+
+Model.compile(loss = tf.keras.losses.mae,
+optimizer = tf.keras.optimizer.SGD()
+metrics = [‘mae’]) 
+
+#metrics is the one we will use to measure our model
+
+model.fit(input, output, epochs=10) #epochs -> the number of times you whos your training data
+
+
+#MAE = mean absolute error
+
+#relu = rectified linear unit
+
+#We evaluate our model by giving a data that the model has never seen before
+
+
+
+
+
+#making a tensor using range
+myTensor = tf.range(-100, 100, 4)
+start  = -100
+end  = 100
+step = 4
+
+
+#DO NOT FORGET THAT THE SHAPE OF THE TENSOR MUST HAVE TWO DIMENSIONS OR RANK 2
+3 sets for deep learning:
+
+Training set(80/70) -> Validation Set(10/15) -> Test Set(10/15)
+
+
+Splitting the data:
+
+XTrain = myTensor[:40]
+XTest = myTensor[40:]
+
+YTrain = myTensor[:40]
+TTest = myTensor[40:]
+
+
+#Not having to reshape the data and initializing it through the model
+#input_shape = [5] || input_shape=(2,2)
+Model = tf.keras.Sequential([
+	tf.keras.layers.Dense(1, activation=”relu”, input_shape=[1])
+])
+
+
+1 = to show the progress of the compiler, 0 = silent, 2 = will just mention the epochs
+Model.fit(Input, output, epochs=100, verbose=1)
+
+
+#naming our layers and our model
+
+tf.keras.layers.model (1, activation=”relu”, name=”yourNameForYourModel”)
+
+
+#Getting the model summary
+
+
+
+#showing the plot model
+
+
+From tensorflow.keras.utils import plot_model
+
+plot _model(model=model, sho_shapes=True)
+
+model.summary()
+
+VISUALIZING THE DATA:
+
+Import matplotlib.pyplot as plt
+
+
+plt.figure (figsize=(8,7)) -> just initialize the height and width of the figure
+
+plt.scatter(xAxis, yAxis, c =”g”, label=”Name of your scatter plot”)
+
+plt.legend() -> gives you the legend for the scatter plot 
+
+
+
+
+#Getting the mse of the predicted values
+tf.metrics.mean_absolute_error(y_true=y_outputData, y_pred=predictedData)
+
+tf.metrics.mean_squared_error(y_true=y_outputData, y_pred = predictedData) 
+
+
+
