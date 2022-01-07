@@ -1,0 +1,78 @@
+
+Machine learning types:
+
+Supervised
+Unsupervised 
+reinforcement
+
+
+Supervised -> expects output
+Unsupervised -> does not expect output (Discover itself) no teachers 
+
+
+
+Anaconda -> Anaconda navigator->Jupyter(a notebook)
+
+IMPORTING DATA SETS with python
+
+From sklearn import datasets -> sklearn is a module for machine learning
+
+Algorithm types:
+Classification Algorithm -> answers the questions: what type? 
+Anomaly Detection Algorithm -> detects unusual behaviors, what is the outlier or unusual?
+Clustering Algorithm -> To segregate groups, What group does it belong to?
+Regression Algorithm -> it allows you to predict the outcome by standard error. 
+
+
+
+
+Jupyter part 1:
+
+Import sys, numpy, scipy, matplotlib, pandas, sklearn
+
+Sys is just for python
+
+
+To read a CSV source
+
+source  = ‘your link to the source’
+names = [‘col1’, ‘col2’, ‘col3’, ‘col4’] -> this will be the names for the columns of your data set
+df = p.read_csv(source, names=names) -> this will read the source and make the names as the columns
+Df = dataframe
+
+Df.shape = results in the number of rows and columns 
+df.head(30) -> shows the data until the 30th row
+
+df.groupby(‘nameOfCol’).size() -> To group by class(the type of column) 
+
+Creating a boxplot:
+
+df.plot (kind=’box’, subplot=True, layout=(2,2), sharex = False, sharey=False)
+
+subplot = multiple boxes or each box for each plot
+layout = the layout of the result
+sharex  = if you want to share your x axis with other plots
+Sharey = if you want to share your y axis with other plots
+
+
+df.hist() -> creating a histogram for the data
+
+
+Blue = command mode
+Green = edit mode
+
+H = list for help keyboard shortcuts 
+
+Command mode + b = new cell below the current cell
+Command mode + a = new cell above the current cell
+Command mode + dd = delete a cell
+
+Cell section -> click run all = this will run all the code for the file
+
+Tab to see the intellisense 
+
+shift + tab = to see the purpose of the function and the parameter it takes also do not forget to put cursor on the function
+
+
+command + / = comment
+
