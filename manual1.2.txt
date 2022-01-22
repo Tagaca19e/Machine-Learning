@@ -24,8 +24,6 @@ Clustering Algorithm -> To segregate groups, What group does it belong to?
 Regression Algorithm -> it allows you to predict the outcome by standard error. 
 
 
-
-
 Jupyter part 1:
 
 Import sys, numpy, scipy, matplotlib, pandas, sklearn
